@@ -11,7 +11,12 @@ function decodedValidToken (jwtToken) {
 		if (!jwtToken) throw ('ERROR! Token not found in headers as "authorization"');
 		const accessToken = jwtToken.replace('Bearer ','')
 		const key = getCertificate();
-		return jwt.verify(accessToken, key);
+		const options = {
+			audience: 'bdaef5b2-47f9-4f72-b492-2ab94e983588',
+			issuer: 'https://sts.windows.net/713338cc-671f-4a00-afbd-a993fdbd899b/',
+			subject: 'ztu8ssCK8NDWwmbVunz1FaCPaKpIgvEZNTdtRxrmPtY'
+		};
+		return jwt.verify(accessToken, key, options);
 	} catch(err) {
 		return undefined;
 	}
