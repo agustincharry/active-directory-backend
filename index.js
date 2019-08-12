@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors')
 const app = express();
 const port = 3000;
-const activeDirectoryMiddleware = require('./middlewares/active-directory.middleware');
+const activeDirectoryMiddleware = require('./active-directory-module/middlewares/active-directory.middleware');
 
 app.use(cors());
 app.use(activeDirectoryMiddleware());
